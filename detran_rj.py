@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
+import hashlib
 import json
 import os
 import sys
@@ -47,6 +48,13 @@ def grava_json(filename, data):
         json.dump(data, fobj)
     log(u'Gravação finalizada.')
 
+def gera_hash(questao):
+    opcoes = u'\n'.join(questao['opcoes'])
+    mensagem = u'{}\n{}\n{}'.format(questao['enunciado'],
+                                    questao['imagem'],
+                                    opcoes).encode('utf-8')
+    return hashlib.sha256(mensagem).hexdigest()
+
 def main():
     json_filename = u'detran-rj.json'
     if not os.path.exists(json_filename):
@@ -62,16 +70,17 @@ def main():
         try:
             questoes_anteriores = len(db)
             for questao in pega_questoes():
-                enunciado = questao['enunciado']
-                if enunciado in db:
-                    db[enunciado]['repeticoes'] += 1
+                hash_questao = gera_hash(questao)
+                if hash_questao in db:
+                    db[hash_questao]['repeticoes'] += 1
                 else:
-                    db[enunciado] = questao
+                    db[hash_questao] = questao
 
             total_de_questoes = len(db)
             novas_questoes = total_de_questoes - questoes_anteriores
-            log(u'Novas questões: {:02d}. Total: {:05d}'
-                .format(novas_questoes, total_de_questoes))
+            simulados = int(sum([q['repeticoes'] for q in db.values()]) / 30)
+            log(u'Novas questões: {:02d}. Total: {:05d}. Simulados: {:05d}'
+                .format(novas_questoes, total_de_questoes, simulados))
 
             grava_json(json_filename, db)
         except KeyboardInterrupt:
