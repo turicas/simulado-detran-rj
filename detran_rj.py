@@ -69,12 +69,13 @@ def main():
     while True:
         try:
             questoes_anteriores = len(db)
-            for questao in pega_questoes():
-                hash_questao = gera_hash(questao)
-                if hash_questao in db:
-                    db[hash_questao]['repeticoes'] += 1
-                else:
-                    db[hash_questao] = questao
+            for i in range(500):
+                for questao in pega_questoes():
+                    hash_questao = gera_hash(questao)
+                    if hash_questao in db:
+                        db[hash_questao]['repeticoes'] += 1
+                    else:
+                        db[hash_questao] = questao
 
             total_de_questoes = len(db)
             novas_questoes = total_de_questoes - questoes_anteriores
