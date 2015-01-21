@@ -19,6 +19,7 @@ def pega_questoes():
 
     questoes_js = response.text.split('<script>')[1].split('};\r\n')[0] + u'}'
     questoes_js = questoes_js.replace(u'var questoes = ', u'')
+    questoes_js = questoes_js.encode('iso-8859-1').decode('utf-8')
     questoes = json.loads(questoes_js)['Questao']
 
     novas_questoes = []
