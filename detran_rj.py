@@ -49,7 +49,7 @@ def grava_json(filename, data):
     log(u'Gravação finalizada.')
 
 def gera_hash(questao):
-    opcoes = u'\n'.join(questao['opcoes'])
+    opcoes = u'\n'.join(sorted(questao['opcoes']))
     mensagem = u'{}\n{}\n{}'.format(questao['enunciado'],
                                     questao['imagem'],
                                     opcoes).encode('utf-8')
