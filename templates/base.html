@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Questões do Simulado DETRAN-RJ</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#sobre">Sobre</a></li>
+            <li role="presentation"><a
+                href="https://github.com/turicas/simulado-detran-rj">Código-fonte</a></li>
+            <li role="presentation"><a href="http://simulado.detran.rj.gov.br/">Site do Simulado</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Simulado DETRAN-RJ</h3>
+      </div>
+
+      {% block content %}{% endblock %}
+
+      <footer class="footer">
+      <p>
+        Desenvolvido e disponibilizado como
+        <a href="https://pt.wikipedia.org/wiki/Software_livre">software livre</a>
+        por <a href="http://turicas.info/">Álvaro Justen</a>. ♥
+      </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

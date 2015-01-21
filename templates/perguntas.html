@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+      <h2>Perguntas</h2>
+
+      {% for pergunta in perguntas %}
+      <div class="row">
+        <div class="col-md-8">
+          <h4>{{ pergunta.enunciado }}</h4>
+          <p> Número de aparições: {{ pergunta.repeticoes }} </p>
+        </div>
+
+        <div class="col-md-4">
+          {% if pergunta.imagem %}
+          <img src="http://simulado.detran.rj.gov.br/img/placas/{{ pergunta.imagem }}.jpg" alt="Imagem da pergunta" />
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+{% endblock %}

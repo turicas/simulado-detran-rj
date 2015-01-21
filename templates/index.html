@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+      <div class="jumbotron">
+        <p class="lead">
+          <a name="sobre"></a>
+          Nessa página estão listadas <strong>todas as perguntas</strong> (com
+          as devidas respostas) encontradas no simulado de
+          <strong>habilitação</strong> do DETRAN-RJ. Para gerar essa página foi
+          desenvolvido um software que acessa os simulados diversas vezes (em
+          torno de 10.000 simulados), armazena as perguntas e respostas
+          corretas e as ordena por ordem decrescente de aparição.
+        </p>
+        <p>
+          <h2> Estatísticas </h2>
+          <ul>
+            <li> Total de perguntas: {{ total_perguntas }} </li>
+            <li> Total de simulados feitos: {{ total_simulados }} </li>
+          </ul>
+      </div>
+{% endblock %}
