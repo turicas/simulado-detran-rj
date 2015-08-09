@@ -6,7 +6,7 @@ Esse repositório tem como objetivo:
   para a prova de habilitação do DETRAN-RJ -- branch `develop`;
 - Hospedar o código do site que exibe os resultados (todas as questões
   disponíveis, questões que mais aparecem, respostas corretas etc.) -- branch
-  `gh-pages`.
+  `gh-pages`. [Acesse o site](http://turicas.github.io/simulado-detran-rj/).
 
 
 ## Funcionamento do Crawler
