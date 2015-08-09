@@ -18,8 +18,9 @@ def keys_to_lower(old_dict):
 def pega_questoes():
     response = requests.get(URL)
 
-    questoes_js = response.text.split('<script>')[1].split('};\r\n')[0] + u'}'
-    questoes_js = questoes_js.replace(u'var questoes = ', u'')
+    questoes_js = response.text.split('<script>var questoes')[1]
+    questoes_js = questoes_js.split('};\r\n')[0] + u'}'
+    questoes_js = questoes_js.strip()[2:] # remove '= '
     questoes_js = questoes_js.encode('iso-8859-1').decode('utf-8')
     questoes = json.loads(questoes_js)['Questao']
 
